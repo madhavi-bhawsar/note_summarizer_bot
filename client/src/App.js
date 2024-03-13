@@ -1,3 +1,4 @@
+// App.js
 import { Route, Routes } from "react-router-dom";
 import { Login, Signup } from "./pages";
 import Home from "./pages/Home";
