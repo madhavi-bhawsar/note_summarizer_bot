@@ -7,6 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import Navbar from "./Navbar";
 import Pdfupload from "./pdfupload"; // Importing the App component from pdf.js
+import Imageupload from "./imageupload"; // Importing the App component from pdf.js
 
 const Home = () => {
   const navigate = useNavigate();
@@ -46,8 +47,11 @@ const Home = () => {
   return (
     <>
       <Navbar username={username} handleLogout={handleLogout} />
-      <div className="home_page">
-        <Pdfupload/>
+      <div style={flexstyle}>
+          <Pdfupload/>
+          <div style={imgup}>
+          <Imageupload/>
+          </div>
       </div>
       <ToastContainer />
     </>
@@ -55,8 +59,16 @@ const Home = () => {
 };
 export default Home;
 
-
-
+const flexstyle = {
+  padding: "20px 20px",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+};
+const imgup={
+  margin: "101px",
+  textAlign: "center",
+}
 
 
 // import { useEffect, useState } from "react";
