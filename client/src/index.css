@@ -134,3 +134,17 @@ span a {
 canvas.react-pdf__Page__canvas {
   margin-bottom: 50px;
 }
+
+.flexstyle{
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:71px;
+}
+
+.left-panel{
+  height: 43em;
+  width: 11em;
+  background-color: red;
+}

@@ -49,7 +49,7 @@ const Home = () => {
   return (
     <>
       <Navbar username={username} handleLogout={handleLogout} />
-      <div style={flexstyle}>
+      <div className="flexstyle">
       <Pdfupload/>
           <div style={imgup}>
           <Imageupload/>
@@ -61,13 +61,7 @@ const Home = () => {
 };
 export default Home;
 
-const flexstyle = {
-  padding: "20px 20px",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  marginTop:"71px",
-};
+
 const imgup={
   margin: "101px",
   textAlign: "center",

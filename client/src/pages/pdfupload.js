@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { pdfjs } from "react-pdf";
 import PdfComp from "./PdfComp";
+import { Link } from 'react-router-dom'; 
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.js",
@@ -89,6 +90,24 @@ function Pdfupload() {
                     >
                       Show Pdf
                     </button>
+                    <Link 
+                      to={{
+                        pathname: "/notesummary",
+                        search: `?pdf=${data.pdf}` // Pass PDF data as query parameter
+                      }}
+                      className="btn btn-secondary"
+                    >
+                      Extract Summary
+                    </Link>
+                    <Link 
+                      to={{
+                        pathname: "/questiongenerator",
+                        search: `?pdf=${data.pdf}` // Pass PDF data as query parameter
+                      }}
+                      className="btn btn-secondary"
+                    >
+                      question generator
+                    </Link>
                   </div>
                 );
               })}

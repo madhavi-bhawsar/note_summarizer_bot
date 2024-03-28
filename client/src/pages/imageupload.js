@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom'; 
 
 function Imageupload() {
   const [image, setImage] = useState(null);
@@ -38,7 +39,8 @@ function Imageupload() {
 
   return (
     <div>
-      <h4>Upload image</h4><br></br>
+      <h4>Upload image</h4>
+      <br></br>
       <form onSubmit={submitImage}>
         <input type="file" accept="image/*" onChange={onInputChange}></input>
         <button type="submit">Submit</button>
@@ -47,11 +49,22 @@ function Imageupload() {
         ? ""
         : allImage.map((data) => {
             return (
-              <img
-                src={require(`./images/${data.image}`)}
-                height={100}
-                width={100}
-              />
+              <div>
+                <img
+                  src={require(`./images/${data.image}`)}
+                  height={100}
+                  width={100}
+                />
+                <Link
+                  to={{
+                    pathname: "/imgprocessor",
+                    search: `?img=${data.image}`, // Pass image
+                  }}
+                  className="btn btn-secondary"
+                >
+                  understand
+                </Link>
+              </div>
             );
           })}
     </div>
