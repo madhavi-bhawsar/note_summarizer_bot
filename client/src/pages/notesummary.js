@@ -83,9 +83,6 @@ function Notesummary() {
 
   return (
     <div style={flexpanel}> 
-        <div className="left-panel">
-           
-        </div>
       <div style={backgroundscroll}>
         <h1>PDF Summary</h1>
         <header>
@@ -96,9 +93,8 @@ function Notesummary() {
             </div>
           )}
           <br></br>
-          {/* Display AI response or loading message */}
           <h4>
-            <i>AI Response:</i>
+            <i>Summarized notes:</i>
           </h4>
           {loading ? (
             <h1>Loading AI response...</h1>

@@ -68,9 +68,6 @@ function formatResponse(response) {
 
   return (
     <div style={flexpanel}> 
-        <div className="left-panel">
-
-        </div>
       <div style={backgroundscroll}>
         <h1>Question Generator</h1>
         <header>
@@ -93,6 +90,7 @@ const backgroundscroll = {
   overflowY: "scroll",
   background: "white",
   margin:"10px",
+  textAlign: "center"
 };
 
 const aires = {

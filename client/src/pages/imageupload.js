@@ -1,73 +1,73 @@
-//imageupload.js
+// //imageupload.js
 
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from 'react-router-dom'; 
+// import { useEffect, useState } from "react";
+// import axios from "axios";
+// import { Link } from 'react-router-dom'; 
 
-function Imageupload() {
-  const [image, setImage] = useState(null);
-  const [allImage, setAllImage] = useState(null);
+// function Imageupload() {
+//   const [image, setImage] = useState(null);
+//   const [allImage, setAllImage] = useState(null);
 
-  useEffect(() => {
-    getImage();
-  }, []);
-  const submitImage = async (e) => {
-    e.preventDefault();
+//   useEffect(() => {
+//     getImage();
+//   }, []);
+//   const submitImage = async (e) => {
+//     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("image", image);
+//     const formData = new FormData();
+//     formData.append("image", image);
 
-    const result = await axios.post(
-      "http://localhost:4000/upload-image",
-      formData,
-      {
-        headers: { "Content-Type": "multipart/form-data" },
-      }
-    );
-  };
+//     const result = await axios.post(
+//       "http://localhost:4000/upload-image",
+//       formData,
+//       {
+//         headers: { "Content-Type": "multipart/form-data" },
+//       }
+//     );
+//   };
 
-  const onInputChange = (e) => {
-    console.log(e.target.files[0]);
-    setImage(e.target.files[0]);
-  };
+//   const onInputChange = (e) => {
+//     console.log(e.target.files[0]);
+//     setImage(e.target.files[0]);
+//   };
 
-  const getImage = async () => {
-    const result = await axios.get("http://localhost:4000/get-image");
-    console.log(result);
-    setAllImage(result.data.data);
-  };
+//   const getImage = async () => {
+//     const result = await axios.get("http://localhost:4000/get-image");
+//     console.log(result);
+//     setAllImage(result.data.data);
+//   };
 
-  return (
-    <div>
-      <h4>Upload image</h4>
-      <br></br>
-      <form onSubmit={submitImage}>
-        <input type="file" accept="image/*" onChange={onInputChange}></input>
-        <button type="submit">Submit</button>
-      </form>
-      {allImage == null
-        ? ""
-        : allImage.map((data) => {
-            return (
-              <div>
-                <img
-                  src={require(`./images/${data.image}`)}
-                  height={100}
-                  width={100}
-                />
-                <Link
-                  to={{
-                    pathname: "/imgprocessor",
-                    search: `?img=${data.image}`, // Pass image
-                  }}
-                  className="btn btn-secondary"
-                >
-                  understand
-                </Link>
-              </div>
-            );
-          })}
-    </div>
-  );
-}
-export default Imageupload;
+//   return (
+//     <div>
+//       <h4>Upload image</h4>
+//       <br></br>
+//       <form onSubmit={submitImage}>
+//         <input type="file" accept="image/*" onChange={onInputChange}></input>
+//         <button type="submit">Submit</button>
+//       </form>
+//       {allImage == null
+//         ? ""
+//         : allImage.map((data) => {
+//             return (
+//               <div>
+//                 <img
+//                   src={require(`./images/${data.image}`)}
+//                   height={100}
+//                   width={100}
+//                 />
+//                 <Link
+//                   to={{
+//                     pathname: "/imgprocessor",
+//                     search: `?img=${data.image}`, // Pass image
+//                   }}
+//                   className="btn btn-secondary"
+//                 >
+//                   understand
+//                 </Link>
+//               </div>
+//             );
+//           })}
+//     </div>
+//   );
+// }
+// export default Imageupload;

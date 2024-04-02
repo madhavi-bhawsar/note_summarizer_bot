@@ -7,8 +7,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import Navbar from "./Navbar";
 import Pdfupload from "./pdfupload"; // Importing the App component from pdf.js
-import Imageupload from "./imageupload"; // Importing the App component from pdf.js
-
+// import Imageupload from "./imageupload"; // Importing the App component from pdf.js
+import { Link } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies([]);
@@ -51,8 +51,13 @@ const Home = () => {
       <Navbar username={username} handleLogout={handleLogout} />
       <div className="flexstyle">
       <Pdfupload/>
-          <div style={imgup}>
-          <Imageupload/>
+          <div style={flexCol}>
+          <Link to="/imgtry">
+            <button style={buttonstyle}>Understand Image</button>
+          </Link>
+          <Link to="/chatwithpdf">
+            <button style={buttonstyle}>Chat with PDF</button>
+          </Link>
           </div>
       </div>
       <ToastContainer />
@@ -62,8 +67,16 @@ const Home = () => {
 export default Home;
 
 
-const imgup={
+const flexCol = {
   margin: "101px",
   textAlign: "center",
+  display: "flex",
+  flexDirection: "column",
+};
+
+const buttonstyle={
+  height: "4em",
+  width: "11em",
+  margin:"11px"
 }
 

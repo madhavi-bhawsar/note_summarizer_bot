@@ -75,17 +75,18 @@ function Pdfupload() {
           Submit
         </button>
       </form>
+      <br></br>
       <div className="uploaded">
-        <h4>Uploaded PDF:</h4>
+        <h4>Uploaded PDFs:</h4><br></br>
         <div className="output-div">
           {allImage == null
             ? ""
             : allImage.map((data) => {
                 return (
-                  <div className="inner-div">
+                  <div>
                     <h6>Title: {data.title}</h6>
                     <button
-                      className="btn btn-primary"
+                      style={buttonstyle}
                       onClick={() => showPdf(data.pdf)}
                     >
                       Show Pdf
@@ -95,18 +96,16 @@ function Pdfupload() {
                         pathname: "/notesummary",
                         search: `?pdf=${data.pdf}` // Pass PDF data as query parameter
                       }}
-                      className="btn btn-secondary"
                     >
-                      Extract Summary
+                      <button style={buttonstyle}>Extract Summary</button>
                     </Link>
                     <Link 
                       to={{
                         pathname: "/questiongenerator",
                         search: `?pdf=${data.pdf}` // Pass PDF data as query parameter
                       }}
-                      className="btn btn-secondary"
                     >
-                      question generator
+                      <button style={buttonstyle}>Question Generator</button>
                     </Link>
                   </div>
                 );
@@ -119,3 +118,8 @@ function Pdfupload() {
 }
 
 export default Pdfupload;
+
+const buttonstyle={
+  margin:"5px",
+}
+
