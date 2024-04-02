@@ -5,8 +5,9 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./Routes/AuthRoute");
 const app = express();
-require("dotenv").config();
 const { MONGO_URL, PORT } = process.env;
+
+
 
 // Middleware
 app.use(cors({
@@ -105,6 +106,8 @@ app.get("/get-image", async (req, res) => {
     res.json({ status: error });
   }
 });
+
+
 
 
 

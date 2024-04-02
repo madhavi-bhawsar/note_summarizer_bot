@@ -4,7 +4,7 @@ import { Login, Signup } from "./pages";
 import Home from "./pages/Home";
 import Notesummary from "./pages/notesummary";
 import QuestionGenerator from "./pages/questiongenerator";
-import ImgProcessor from "./pages/imgprocessor";
+import ImgTry from "./pages/imgtry";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/notesummary" element={<Notesummary />} />
         <Route path="/questiongenerator" element={<QuestionGenerator />} />
-        <Route path="/imgprocessor" element={<ImgProcessor />} />
+        <Route path="/imgtry" element={<ImgTry />} />
       </Routes>
     </div>
   );
